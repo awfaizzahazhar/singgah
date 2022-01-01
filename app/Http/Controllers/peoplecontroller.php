@@ -22,12 +22,38 @@ class peoplecontroller extends Controller
     	return view('list',['posts'=>$data]);
     }
 
+    function history()
+    {
+    	return view('history');
+        
+    }
+
+    function complete()
+    {
+        return view('complete');
+
+    }
+
 
     public function purchase($id)
     {
     	 $data = Post::find($id);
     	 return view('purchase',compact('data','id'));
     }
+
+    public function search()
+    {
+    	$search_text = $_GET['query'];
+    	$posts = Post::where('location','LIKE', '%'.$search_text. '%')->get();
+    	
+
+    	return view('/search',compact('posts'));
+
+
+    }
+
+
+
 
 
     // function sum()
