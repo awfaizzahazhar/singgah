@@ -35,6 +35,9 @@ Route::get('/view',function(){
 
 
 
+Route::get('/history',[peoplecontroller::class,'history']);
+
+
 Route::get('/sell', [PostController::class,'sell']);
 
 Route::post('/post',[PostController::class,'store']);
@@ -51,6 +54,10 @@ Route::put('/update/{id}',[PostController::class,'update']);
 Route::get('/list',[peoplecontroller::class,'show']);
 
 Route::get('/purchase/{id}',[peoplecontroller::class,'purchase']);
+
+Route::get('/search',[peoplecontroller::class,'search']);
+
+Route::get('/complete',[peoplecontroller::class,'complete']);
 
 // Route::post('/payment',[peoplecontroller::class,'sum']);
 
