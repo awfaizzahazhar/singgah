@@ -10,14 +10,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <br>
-                <h3> <center> Your Order Has Been Confirmed! <center> </h3>
+                <h3> <center> Your Order Has Been Confirmed! </h3>
                     <br>
 
-             <center><h2><b>Your ORDER ID is</h2></b>
-              (Please show this number to the seller upon picking up)
-                <img src="https://c.tenor.com/0AVbKGY_MxMAAAAM/check-mark-verified.gif"></center>
+          
+               </center><center><img src="https://c.tenor.com/0AVbKGY_MxMAAAAM/check-mark-verified.gif"></center>
 
-               <center> You can view your purchase history<a href="/history"> <u>here</a> </u></center>
+               <center> <b>VIEW YOUR ORDER ID <a href="/history"> <u>HERE</a> </u></center></b>
+               <center><i>Please show order ID to seller upon picking up.</i></center>
             </div>
         </div>
     </div>
