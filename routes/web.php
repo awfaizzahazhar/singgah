@@ -55,9 +55,15 @@ Route::get('/list',[peoplecontroller::class,'show']);
 
 Route::get('/purchase/{id}',[peoplecontroller::class,'purchase']);
 
+Route::get('/dynamic_pdf',[peoplecontroller::class,'pastpurchasereceipt']);
+
 Route::get('/search',[peoplecontroller::class,'search']);
 
 Route::get('/complete',[peoplecontroller::class,'complete']);
+
+Route::post('/purchasehistory',[peoplecontroller::class,'purchasehistory']);
+
+Route::get('/history',[peoplecontroller::class,'showw']);
 
 // Route::post('/payment',[peoplecontroller::class,'sum']);
 
