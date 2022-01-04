@@ -5,6 +5,7 @@ Use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use App\Models\past_purchase;
 
 class peoplecontroller extends Controller
 {
@@ -22,18 +23,51 @@ class peoplecontroller extends Controller
     	return view('list',['posts'=>$data]);
     }
 
+    function showw()
+    {
+
+        $dataa=past_purchase::where('user_id', auth()->user()->id)->get();
+        return view('history',['past_purchases'=>$dataa]);
+    }
+
     function history()
     {
-    	return view('history');
-        
+    	return view('history'); 
+
     }
 
     function complete()
     {
         return view('complete');
 
+
     }
 
+    function purchasehistory(Request $request)
+    {
+         $USER = auth::user()->id;
+       $query = DB::table('past_purchases')->insert([
+
+        'food'=>$request->input('food'),
+         'caption'=>$request->input('caption'),
+          'location'=>$request->input('location'),
+           'price'=>$request->input('price'),
+            'quantity'=>$request->input('quantity'),
+             'method'=>$request->input('method'),
+             'user_id'=>$USER
+       ]);
+
+       return redirect('/complete');
+    }
+
+ public function pastpurchasereceipt()
+    {
+         $dataa=past_purchase::where('user_id', auth()->user()->id)->get();
+        return view('dynamic_pdf',['past_purchases'=>$dataa]);
+
+    }
+
+ 
 
     public function purchase($id)
     {
