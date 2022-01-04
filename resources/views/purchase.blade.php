@@ -33,70 +33,80 @@ tr:nth-child(even) {
                 </h3>
                 <img src="https://i.ibb.co/RSq9JJw/Untitled-design-1.gif"></a>
 
+                 
 
-                <table class="table">
-                	<tr>
-                	<th>  Food </th>
-                </tr>
-                	<td>{{$data['food']}}</td>
-                	<tr>
-                	<th> Caption </th>
-                </tr>
-                	<td>{{$data['caption']}}</td>
-                	<tr>
-                	<th> Location and Time </th>
-                </tr>
-                	<td>{{$data['location']}}</td>
-                	<tr>
-                	<th> Price</th>
-                </tr>
-                	<td>{{$data['price']}}</td>
-                	<tr>
-                	<th>Stock Left </th>
-                </tr>
-                	<td>{{$data['stock']}}</td>
-                	<!-- <tr>
-                	<th> Image </th>
-                </tr>
-                	<td><img src="cover/{{ $data->cover }}" class="img-responsive" style="max-height:100px; max-width:100px" alt="" srcset=""></td> -->
+
+
+
+
+
+                    <form action="/purchasehistory" method="post">
+                      <div class="form-group">
+                        @csrf
+
+                Food
+                 <input type="text" name="food" class="form-control m-2" placeholder="Food Name" value="{{$data['food']}}" readonly>
+
+                 <!-- <input type="text" name="user_id" class="form-control m-2" placeholder="Food Name" value="{{$data['user_id']}}" readonly> -->
+                 Caption
+                
+                 <input type="text" name="caption" class="form-control m-2" placeholder="Food Name" value="{{$data['caption']}}" readonly>
+                 Location
+                 
+                 <input type="text" name="location" class="form-control m-2" placeholder="Food Name" value="{{$data['location']}}" readonly>
+                 Price
+                 <input type="text" name="price" class="form-control m-2" placeholder="Food Name" value="{{$data['price']}}" readonly>
+               
+                 
+
                 	
                 	<tr>
                 	<th> How many will you be buying? </th>
                     </tr>
+                    <br>
                 	<td><label for="quantity"></label>
   					<input type="number" id="quantity" name="quantity" min="1" max="{{$data['stock']}}">&nbsp;</td>
                     <tr>
                     <th> Total: RM 
+
                     <span class="amount-total"></span></th>
 
                   
 
                     </tr>
                 </table>
-
-               <b>Choose your payment method</b>
+                <br>
+                <br>
+                 <b>Choose your payment method</b>
                 <br>
                 <br>
 
-                <input type="radio" name="result" value="maybank2u" checked> Online Banking   
+                <input type="radio" name="method" value="Online Banking" checked> Online Banking   
 
                 <img src="https://www.nicepng.com/png/detail/123-1232443_click-vector-digital-online-banking-transparent.png" style="max-height:100px; max-width:100px" >
                 <br>
                 <br>
 
-                 <input type="radio" name="result" value="credit"> Credit Card
+                 <input type="radio" name="method" value="Credit Card"> Credit Card
 
                   <img src="https://thumbs.dreamstime.com/b/delhi-india-february-popular-credit-card-companies-logos-including-mastercard-visa-american-express-more-211749084.jpg" style="max-height:200px; max-width:200px" >
 
                  <br>
 
+                       &nbsp;<button type="submit" class="btn btn-danger mt-3">Complete Payment</button>
+                     </form>
+                   </div>
+                 </div>
+                <br>
+                <br>
+
+              
                 
 
 
 
 
-                    &nbsp;&nbsp;
-                    <a href="/complete" class="btn btn-outline-primary">Complete Payment</a>
+                    
 
                     </div>  
 
