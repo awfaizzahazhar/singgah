@@ -14,15 +14,18 @@
             
                <center> See your past purchase history here <center>
                 <center>
+                    <br>
 
                     <table>
                     <thead>
                         <tr>
                             <th>Order ID &nbsp;&nbsp; </th>
                             <th> &nbsp;Food Name &nbsp;&nbsp; </th>
-                            <th> &nbsp;Location and Date&nbsp;&nbsp;  </th>
+                            <th> &nbsp;Caption &nbsp;&nbsp; </th>
+                            <th> &nbsp;Location and Date&nbsp;&nbsp; </th>
                             <th> &nbsp;Price&nbsp;&nbsp;  </th>
                              <th> &nbsp;Quantity&nbsp;&nbsp;  </th>
+                             <th> &nbsp;Payment Method &nbsp;&nbsp; </th>
                              
                             
                            
@@ -31,12 +34,18 @@
                 </tbody>
                 
                  <tr>
-                   <td>1</td>
-                   <td>2</td>
-                    <td>3 </td>
-                    <td>4</td>
-                    <td>5</td>
+                    @foreach ($past_purchases as $past_purchase)
+                   <td>{{$past_purchase['orderid']}}</td>
+                   <td>{{$past_purchase['food']}}</td>
+                    <td>{{$past_purchase['caption']}} </td>
+                    <td>{{$past_purchase['location']}}</td>
+                    <td>{{$past_purchase['price']}}</td>
+                    <td>{{$past_purchase['quantity']}}</td>
+                    <td>{{$past_purchase['method']}}</td>
+                       <td>  <a href="{{url('dynamic_pdf')}}" class="btn btn-outline-primary">Generate Receipt</a> </td>
+
                 </tr>
+                @endforeach
 
                     
 
@@ -52,6 +61,37 @@
                <h3> <center> Your Order History</center> </h3>
                 <center>See the people who purchased your food!</center>
                 <br>
+                <center>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID &nbsp;&nbsp; </th>
+                            <th> &nbsp;Food Name &nbsp;&nbsp; </th>
+                            <th> &nbsp;Caption &nbsp;&nbsp; </th>
+                            <th> &nbsp;Location and Date&nbsp;&nbsp; </th>
+                            <th> &nbsp;Price&nbsp;&nbsp;  </th>
+                             <th> &nbsp;Quantity&nbsp;&nbsp;  </th>
+                             <th> &nbsp;Payment Method &nbsp;&nbsp; </th>
+                             
+                            
+                           
+                        </tr>
+                    </thead>
+                </tbody>
+
+                <tr>
+                    @foreach ($past_purchases as $past_purchase)
+                   <td>{{$past_purchase['orderid']}}</td>
+                   <td>{{$past_purchase['food']}}</td>
+                    <td>{{$past_purchase['caption']}} </td>
+                    <td>{{$past_purchase['location']}}</td>
+                    <td>{{$past_purchase['price']}}</td>
+                    <td>{{$past_purchase['quantity']}}</td>
+                    <td>{{$past_purchase['method']}}</td>
+                </tr>
+                @endforeach
+            </table>
+</center>
 
             </div>
         </div>
